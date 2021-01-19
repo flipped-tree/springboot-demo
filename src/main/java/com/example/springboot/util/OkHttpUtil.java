@@ -1,0 +1,28 @@
+package com.example.springboot.util;
+
+import java.util.concurrent.TimeUnit;
+
+/**
+ * @author xingce
+ * @date 2020/12/17 11:52
+ */
+public class OkHttpUtil {
+
+    private OkHttpUtil() {
+
+    }
+
+    private static class OkHttpClientHolder {
+        private static final okhttp3.OkHttpClient INSTANCE = new okhttp3.OkHttpClient.Builder().
+                connectTimeout(30, TimeUnit.SECONDS).
+                readTimeout(30, TimeUnit.SECONDS).
+                retryOnConnectionFailure(true).build();
+    }
+
+    public static okhttp3.OkHttpClient getInstance() {
+        return OkHttpClientHolder.INSTANCE;
+    }
+
+
+
+}
