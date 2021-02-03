@@ -18,14 +18,14 @@ import java.util.UUID;
  * @date 2020/12/18 21:57
  */
 @RestController
-public class LoanController {
+public class TestController {
 
     @Resource
     private RabbitTemplate rabbitTemplate;
 
-    @PostMapping("/fund/loan")
+    @PostMapping("/test")
     @Validation
-    public void loan(@RequestBody String message) {
+    public void test(@RequestBody String message) {
         String msgId = UUID.randomUUID().toString();
 
         Mail mail = new Mail();

@@ -1,5 +1,7 @@
 package com.example.springboot.util;
 
+import okhttp3.OkHttpClient;
+
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -19,7 +21,7 @@ public class OkHttpUtil {
                 retryOnConnectionFailure(true).build();
     }
 
-    public static okhttp3.OkHttpClient getInstance() {
+    public static OkHttpClient getInstance() {
         return OkHttpClientHolder.INSTANCE;
     }
 
