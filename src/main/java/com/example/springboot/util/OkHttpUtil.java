@@ -15,7 +15,7 @@ public class OkHttpUtil {
     }
 
     private static class OkHttpClientHolder {
-        private static final okhttp3.OkHttpClient INSTANCE = new okhttp3.OkHttpClient.Builder().
+        private static final OkHttpClient INSTANCE = new okhttp3.OkHttpClient.Builder().
                 connectTimeout(30, TimeUnit.SECONDS).
                 readTimeout(30, TimeUnit.SECONDS).
                 retryOnConnectionFailure(true).build();
