@@ -9,9 +9,4 @@ class SpringbootDemoApplicationTests {
     @Test
     void contextLoads() {
     }
-
-    @Test
-    public void testChain() {
-    }
-
 }
