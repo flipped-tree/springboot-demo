@@ -25,6 +25,4 @@ public class OkHttpUtil {
         return OkHttpClientHolder.INSTANCE;
     }
 
-
-
 }
