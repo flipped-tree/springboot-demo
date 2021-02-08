@@ -27,11 +27,7 @@ public class Consumer {
 
         String msgId = mail.getMsgId();
 
-//        MsgLog msgLog = msgLogService.selectByMsgId(msgId);
-//        if (null == msgLog || msgLog.getStatus().equals(Constant.MsgLogStatus.CONSUMED_SUCCESS)) {// 消费幂等性
-//            log.info("重复消费, msgId: {}", msgId);
-//            return;
-//        }
+        // todo 幂等性校验
 
         log.info("msgId:{}", msgId);
 
@@ -41,7 +37,6 @@ public class Consumer {
         boolean success = isSuccessSend();
         if (success) {
             /*
-             * msgLogService.updateStatus(msgId, Constant.MsgLogStatus.CONSUMED_SUCCESS);
              * 消费确认
              */
             channel.basicAck(tag, false);

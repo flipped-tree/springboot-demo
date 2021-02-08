@@ -26,16 +26,18 @@ public class TestController {
     @PostMapping("/test")
     @Validation
     public void test(@RequestBody String message) {
-        String msgId = UUID.randomUUID().toString();
+        for (int i = 0; i < 5; i++) {
+            String msgId = UUID.randomUUID().toString();
 
-        Mail mail = new Mail();
-        mail.setMsgId(msgId);
-        mail.setMessage(message);
+            Mail mail = new Mail();
+            mail.setMsgId(msgId);
+            mail.setMessage(message);
 
-        // todo 插入一条发送消息 msgId
-        CorrelationData correlationData = new CorrelationData(msgId);
-        // 发送消息
-        rabbitTemplate.convertAndSend(RabbitConfig.MAIL_EXCHANGE_NAME, RabbitConfig.MAIL_ROUTING_KEY_NAME, MessageHelper.objToMsg(mail), correlationData);
+            // todo 插入一条发送消息 msgId
+            CorrelationData correlationData = new CorrelationData(msgId);
+            // 发送消息
+            rabbitTemplate.convertAndSend(RabbitConfig.MAIL_EXCHANGE_NAME, RabbitConfig.MAIL_ROUTING_KEY_NAME, MessageHelper.objToMsg(mail), correlationData);
+        }
     }
 
 }
