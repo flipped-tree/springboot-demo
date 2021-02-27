@@ -1,46 +1,61 @@
 package com.example.practice.thread.producer;
 
-import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
 
 /**
  * @author xingce
- * @date 2021/02/23 22:51
+ * @date 2018/11/22 4:05 PM
  */
 public class BlockingQueueTest {
-    private static final int MAX_CAPACITY = 10;
-    private static final ArrayBlockingQueue<Object> GOODS = new ArrayBlockingQueue<Object>(MAX_CAPACITY);
 
     public static void main(String[] args) {
-        (new ProducerThread()).start();
-
-        (new ConsumerThread()).start();
+        BlockingQueue<Integer> sharedQueue = new LinkedBlockingQueue<>(10);
+        Thread producer = new Thread(new Producer(sharedQueue));
+        Thread consumer = new Thread(new Consumer(sharedQueue));
+        producer.start();
+        consumer.start();
     }
 
-    static class ProducerThread extends Thread {
+    static class Producer implements Runnable {
+
+        BlockingQueue<Integer> sharedQueue;
+
+        Producer(BlockingQueue<Integer> queue) {
+            this.sharedQueue = queue;
+        }
+
         @Override
         public void run() {
-            while (true) {
-                // 每隔 1000 毫秒生产一个商品
+            for (int i = 1; i <= 5; i++) {
                 try {
-                    GOODS.put(new Object());
-                    System.out.println("Produce goods, total: " + GOODS.size());
+                    System.out.println(Thread.currentThread().getName() + "|生产者|" + i);
+                    sharedQueue.put(i);
                 } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
             }
         }
     }
 
-    static class ConsumerThread extends Thread {
+    static class Consumer implements Runnable {
+
+        BlockingQueue<Integer> sharedQueue;
+
+        Consumer(BlockingQueue<Integer> queue) {
+            this.sharedQueue = queue;
+        }
+
         @Override
         public void run() {
-            while (true) {
-                // 每隔 500 毫秒消费一个商品
+            for (int i = 1; i <= 10; i++) {
                 try {
-                    GOODS.take();
-                    System.out.println("Consume goods, total: " + GOODS.size());
+                    System.out.println(Thread.currentThread().getName() + "|消费者|" + sharedQueue.take());
                 } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
             }
         }
     }
+
 }
