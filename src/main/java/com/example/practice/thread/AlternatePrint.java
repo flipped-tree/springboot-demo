@@ -1,10 +1,11 @@
 package com.example.practice.thread;
 
-import java.util.concurrent.Semaphore;
-
+/**
+ * @author xingce
+ * 奇偶数交替打印
+ */
 public class AlternatePrint {
 
-    private static final Semaphore mutex = new Semaphore(1);
     private static int num = 1;
 
     private static final Object lock = new Object();
