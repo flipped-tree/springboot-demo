@@ -1,4 +1,4 @@
-package com.example.practice.proxy.cglib;
+package com.example.proxy.cglib;
 
 import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;

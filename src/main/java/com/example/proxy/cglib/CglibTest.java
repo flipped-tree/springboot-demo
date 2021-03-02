@@ -1,4 +1,4 @@
-package com.example.practice.proxy.cglib;
+package com.example.proxy.cglib;
 
 /**
  * @author xingce

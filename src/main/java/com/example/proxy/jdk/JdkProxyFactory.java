@@ -1,4 +1,4 @@
-package com.example.practice.proxy.jdk;
+package com.example.proxy.jdk;
 
 import java.lang.reflect.Proxy;
 
