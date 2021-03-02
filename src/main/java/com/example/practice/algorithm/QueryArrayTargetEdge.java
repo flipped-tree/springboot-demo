@@ -19,7 +19,7 @@ public class QueryArrayTargetEdge {
     private static List<Integer> getLeastNumbers(int[] nums, int k) {
         ArrayList<Integer> list = new ArrayList<>();
         int lens = nums.length;
-        if (nums == null || lens == 0 || k > lens || k <= 0) {
+        if (k > lens || k <= 0) {
             return list;
         }
         int start = 0;
