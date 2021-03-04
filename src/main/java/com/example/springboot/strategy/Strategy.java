@@ -5,5 +5,8 @@ package com.example.springboot.strategy;
  * @date 2021/3/4 11:39
  */
 public interface Strategy {
+    /**
+     * doSomething
+     */
     void doSomething();
 }
