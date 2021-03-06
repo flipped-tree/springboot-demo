@@ -1,7 +1,7 @@
 package com.example.practice.basic;
 
 /**
- * @author xingce14590
+ * @author xingce
  * @date 2021/3/1 17:37
  */
 public class App {
