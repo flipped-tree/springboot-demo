@@ -1,5 +1,9 @@
 package com.example.designpattern.singleton;
 
+import okhttp3.OkHttpClient;
+
+import java.util.concurrent.TimeUnit;
+
 /**
  * @author xingce
  * @date 2021/03/26 22:52
@@ -10,17 +14,22 @@ public enum SingletonEnum {
      */
     INSTANCE;
 
-    private final Singleton instance;
+    private final OkHttpClient instance;
 
     SingletonEnum() {
-        instance = new Singleton();
+        instance = new okhttp3.OkHttpClient.Builder().
+                connectTimeout(30, TimeUnit.SECONDS).
+                readTimeout(30, TimeUnit.SECONDS).
+                retryOnConnectionFailure(true).build();
     }
 
-    public Singleton getInstance() {
+    public OkHttpClient getInstance() {
         return instance;
     }
 
-    static class Singleton {
-
+    public static void main(String[] args) {
+        for (int i = 0; i < 10; i++) {
+            System.out.println(SingletonEnum.INSTANCE.getInstance());
+        }
     }
 }
