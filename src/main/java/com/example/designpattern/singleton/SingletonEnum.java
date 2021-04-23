@@ -17,7 +17,7 @@ public enum SingletonEnum {
     private final OkHttpClient instance;
 
     SingletonEnum() {
-        instance = new okhttp3.OkHttpClient.Builder().
+        instance = new OkHttpClient.Builder().
                 connectTimeout(30, TimeUnit.SECONDS).
                 readTimeout(30, TimeUnit.SECONDS).
                 retryOnConnectionFailure(true).build();
