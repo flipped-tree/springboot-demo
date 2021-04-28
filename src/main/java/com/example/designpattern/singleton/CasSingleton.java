@@ -8,6 +8,7 @@ import java.util.concurrent.atomic.AtomicReference;
  */
 public class CasSingleton {
     private static final AtomicReference<CasSingleton> INSTANCE = new AtomicReference<>();
+    public static final int LOOP_COUNT = 10;
 
     private CasSingleton() {
     }
@@ -26,7 +27,7 @@ public class CasSingleton {
     }
 
     public static void main(String[] args) {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < LOOP_COUNT; i++) {
             System.out.println(CasSingleton.getInstance());
         }
     }
