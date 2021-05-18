@@ -22,7 +22,7 @@ public class ThreadPoolTest {
         long start = System.currentTimeMillis();
         AtomicInteger ai = new AtomicInteger(0);
         for (int i = 0; i < 10; i++) {
-            executor.submit(() -> {
+            executor.execute(() -> {
                 int threadSize = executor.getActiveCount();
                 int queueCurrentSize = executor.getQueue().size();
                 System.out.println(Thread.currentThread().getName() + "当前线程数：" + threadSize + "当前队列大小：" + queueCurrentSize + "执行次数：" + ai.incrementAndGet());
