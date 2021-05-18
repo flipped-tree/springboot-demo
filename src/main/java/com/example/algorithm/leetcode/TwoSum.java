@@ -12,8 +12,7 @@ public class TwoSum {
     }
 
     private static int[] getIndex(int[] arr, int target) {
-        int length = arr.length;
-        Map<Integer, Integer> map = new HashMap<>();
+        Map<Integer, Integer> map = new HashMap<>(10);
         for (int i = 0; i < arr.length - 1; i++) {
             if (map.containsKey(target - arr[i])) {
                 return new int[]{map.get(target - arr[i]), i};
