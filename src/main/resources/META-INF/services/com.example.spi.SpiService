@@ -1,1 +1,2 @@
-com.example.spi.SpiServiceImpl
+com.example.spi.MainServiceImpl
+com.example.spi.AppServiceImpl

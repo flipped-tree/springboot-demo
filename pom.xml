@@ -25,12 +25,6 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!--springboot整合rabbitMQ -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-amqp</artifactId>
-        </dependency>
-
         <!--引入AOP依赖-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -62,18 +56,7 @@
             <artifactId>cglib</artifactId>
             <version>3.3.0</version>
         </dependency>
-        <!--retrofit-->
-        <dependency>
-            <groupId>com.squareup.retrofit2</groupId>
-            <artifactId>retrofit</artifactId>
-            <version>2.6.2</version>
-        </dependency>
-        <!-- retrofit-gson -->
-        <dependency>
-            <groupId>com.squareup.retrofit2</groupId>
-            <artifactId>converter-gson</artifactId>
-            <version>2.6.2</version>
-        </dependency>
+
         <!--okHttp3-->
         <dependency>
             <groupId>com.squareup.okhttp3</groupId>
@@ -95,6 +78,13 @@
             <groupId>org.redisson</groupId>
             <artifactId>redisson</artifactId>
             <version>3.14.0</version>
+        </dependency>
+
+        <!--jackson-->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.11.4</version>
         </dependency>
     </dependencies>
 
