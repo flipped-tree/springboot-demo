@@ -11,7 +11,12 @@ public class JdkProxyFactory {
     public static Object getProxy(Object target) {
         return Proxy.newProxyInstance(target.getClass().getClassLoader(),
                 target.getClass().getInterfaces(),
-                new MessageHandler(target));
+                (proxy, method, args) -> {
+                    System.out.println("短信发送前");
+                    Object object = method.invoke(target, args);
+                    System.out.println("短信发送后");
+                    return object;
+                });
     }
 
 }

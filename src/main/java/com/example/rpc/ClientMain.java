@@ -9,6 +9,6 @@ package com.example.rpc;
 public class ClientMain {
     public static void main(String[] args) {
         RpcService service = RpcFunction.refer(RpcService.class, "127.0.0.1", 1412);
-        System.out.println(service.sayHello());
+        System.out.println(service.sayHello("test rpc"));
     }
 }
