@@ -6,9 +6,9 @@ package com.example.rpc;
  */
 public interface RpcService {
     /**
-     * sayHello
-     *
+     * say hello method
+     * @param message
      * @return
      */
-    String sayHello();
+    String sayHello(String message);
 }

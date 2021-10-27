@@ -6,7 +6,7 @@ package com.example.rpc;
  */
 public class RpcServiceImpl implements RpcService{
     @Override
-    public String sayHello() {
-        return "hello rpc";
+    public String sayHello(String message) {
+        return "hello " + message;
     }
 }
