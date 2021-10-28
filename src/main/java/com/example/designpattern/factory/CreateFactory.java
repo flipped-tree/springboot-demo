@@ -6,7 +6,9 @@ package com.example.designpattern.factory;
  */
 public class CreateFactory {
 
-    public static <Input, Output, T extends Context<Input, Output>> T create(Input input, Output output, Class<T> responseClazz) {
+    public static <Input, Output, T extends Context<Input, Output>> T create(Input input,
+                                                                             Output output,
+                                                                             Class<T> responseClazz) {
         T context = null;
         try {
             context = responseClazz.newInstance();
