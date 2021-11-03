@@ -17,6 +17,7 @@ public class WeakReferenceDemo {
         System.out.println(weakReference.get());
         // 手动回收object，object只剩下弱引用
         object = null;
+        System.out.println(weakReference.get());
         // 手动唤醒gc
         System.gc();
         System.out.println(object);

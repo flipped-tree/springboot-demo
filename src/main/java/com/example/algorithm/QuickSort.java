@@ -16,7 +16,7 @@ public class QuickSort {
     }
 
 
-    public static int getMiddle(int[] list, int low, int high) {
+    private static int getMiddle(int[] list, int low, int high) {
         // 数组的第一个值作为中轴（分界点或关键数据）
         int tmp = list[low];
         while (low < high) {
@@ -47,7 +47,4 @@ public class QuickSort {
             quickSort(list, middle + 1, high);
         }
     }
-
-
-
 }
