@@ -1,4 +1,4 @@
-package com.example.designpattern.proxy.statics;
+package com.example.proxy.statics;
 
 /**
  * @author xingce

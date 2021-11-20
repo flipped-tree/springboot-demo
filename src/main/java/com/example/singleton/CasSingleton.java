@@ -1,4 +1,4 @@
-package com.example.designpattern.singleton;
+package com.example.singleton;
 
 import java.util.concurrent.atomic.AtomicReference;
 

@@ -1,4 +1,4 @@
-package com.example.designpattern.singleton;
+package com.example.singleton;
 
 import okhttp3.OkHttpClient;
 

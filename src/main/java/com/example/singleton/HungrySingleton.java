@@ -1,4 +1,4 @@
-package com.example.designpattern.singleton;
+package com.example.singleton;
 
 /**
  * @author xingce

@@ -1,6 +1,9 @@
 package com.example.algorithm;
 
-
+/**
+ * @author xingce
+ * @date 2021/11/20 18:41
+ */
 public class BinarySearch {
 
     public static void main(String[] args) {

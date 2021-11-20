@@ -1,4 +1,4 @@
-package com.example.designpattern.proxy.jdk;
+package com.example.proxy.jdk;
 
 /**
  * @author xingce
