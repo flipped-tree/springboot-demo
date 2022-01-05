@@ -15,9 +15,11 @@ public class Lambda {
         return name;
     }
 
+    private Lambda(String name){
+        this.name = name;
+    }
+
     public static Lambda of(String name){
-        Lambda lambda = new Lambda();
-        lambda.setName(name);
-        return lambda;
+        return new Lambda(name);
     }
 }
