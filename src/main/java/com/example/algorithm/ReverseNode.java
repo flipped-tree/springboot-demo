@@ -16,14 +16,22 @@ public class ReverseNode {
 
         System.out.println();
 
-        ListNode node = revert(node1);
+        ListNode node = reverse(node1);
 
         System.out.println();
 
         printList(node);
+
+        ListNode newNode = reverseList(node);
+
+        System.out.println();
+
+        printList(newNode);
+
+        System.out.println();
     }
 
-    private static void printList(ListNode head){
+    private static void printList(ListNode head) {
         ListNode h = head;
         while (null != h) {
             System.out.print(h.getData() + " ");
@@ -31,7 +39,7 @@ public class ReverseNode {
         }
     }
 
-    private static ListNode revert(ListNode head) {
+    private static ListNode reverse(ListNode head) {
         ListNode pre = null;
         ListNode current = head;
         while (current != null) {
@@ -41,6 +49,16 @@ public class ReverseNode {
             current = temp;
         }
         return pre;
+    }
+
+    private static ListNode reverseList(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        ListNode newHead = reverseList(head.next);
+        head.next.next = head;
+        head.next = null;
+        return newHead;
     }
 }
 
