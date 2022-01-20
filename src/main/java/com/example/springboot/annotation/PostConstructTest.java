@@ -11,6 +11,13 @@ import javax.annotation.PostConstruct;
 @Component
 public class PostConstructTest {
 
+    /**
+     * 构造方法先于@PostConstruct方法
+     */
+    public PostConstructTest() {
+        System.out.println("constructor init");
+    }
+
     @PostConstruct
     public void init() {
         System.out.println("post construct 初始化");
