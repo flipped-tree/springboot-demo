@@ -29,21 +29,32 @@ public class ThreadPoolExecutorDemo {
          *      DisCardOldestPolicy 抛弃队列中最久的任务
          *      DiscardPolicy 抛弃当前任务
          */
-        ThreadPoolExecutor executor = new ThreadPoolExecutor(3, 3, 1, TimeUnit.SECONDS, new LinkedBlockingQueue<>(2)
-                , new NamedThreadFactory("test-pool"), (r, poolExecutor) -> {
-            try {
-                System.out.println("重新放进线程池");
-                poolExecutor.getQueue().put(r);
-            } catch (InterruptedException e) {
-            }
-        });
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(3,
+                5,
+                1,
+                TimeUnit.SECONDS, new
+                LinkedBlockingQueue<>(2),
+                new NamedThreadFactory("test-pool"),
+                (r, poolExecutor) -> {
+                    try {
+                        System.out.println("重新放进线程池");
+                        poolExecutor.getQueue().put(r);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                });
         long start = System.currentTimeMillis();
         AtomicInteger ai = new AtomicInteger(0);
         for (int i = 0; i < 10; i++) {
             executor.execute(() -> {
+                try {
+                    Thread.sleep(5L);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 int threadSize = executor.getActiveCount();
                 int queueCurrentSize = executor.getQueue().size();
-                System.out.println(Thread.currentThread().getName() + "当前线程数：" + threadSize + "当前队列大小：" + queueCurrentSize + "执行次数：" + ai.incrementAndGet());
+                System.out.println(Thread.currentThread().getName() + "；当前线程数：" + threadSize + "；当前队列大小：" + queueCurrentSize + "；执行次数：" + ai.incrementAndGet());
             });
         }
 
