@@ -14,22 +14,13 @@ public enum SingletonEnum {
      */
     INSTANCE;
 
-    private final OkHttpClient instance;
+    private final Singleton<Integer> instance;
 
     SingletonEnum() {
-        instance = new OkHttpClient.Builder().
-                connectTimeout(30, TimeUnit.SECONDS).
-                readTimeout(30, TimeUnit.SECONDS).
-                retryOnConnectionFailure(true).build();
+        instance = new Singleton<>();
     }
 
-    public OkHttpClient getInstance() {
+    public Singleton<Integer> getInstance() {
         return instance;
-    }
-
-    public static void main(String[] args) {
-        for (int i = 0; i < 10; i++) {
-            System.out.println(SingletonEnum.INSTANCE.getInstance());
-        }
     }
 }

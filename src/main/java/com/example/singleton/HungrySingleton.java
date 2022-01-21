@@ -5,17 +5,11 @@ package com.example.singleton;
  * @date 2021/03/26 22:42
  */
 public class HungrySingleton {
-    private static final HungrySingleton INSTANCE = new HungrySingleton();
+    private static final Singleton<Integer> INSTANCE = new Singleton<>();
 
     private HungrySingleton(){}
 
-    public static HungrySingleton getInstance() {
+    public static Singleton<Integer> getInstance() {
         return INSTANCE;
-    }
-
-    public static void main(String[] args) {
-        for (int i = 0; i < 10; i++) {
-            System.out.println(HungrySingleton.getInstance());
-        }
     }
 }

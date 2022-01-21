@@ -5,25 +5,19 @@ package com.example.singleton;
  * @date 2021/03/26 22:44
  */
 public class LazySingleton {
-    private static volatile LazySingleton INSTANCE;
+    private static volatile Singleton<Integer> INSTANCE;
 
     private LazySingleton() {
     }
 
-    public static LazySingleton getInstance() {
+    public static Singleton<Integer> getInstance() {
         if (INSTANCE == null) {
             synchronized (LazySingleton.class) {
                 if (INSTANCE == null) {
-                    INSTANCE = new LazySingleton();
+                    INSTANCE = new Singleton<>();
                 }
             }
         }
         return INSTANCE;
-    }
-
-    public static void main(String[] args) {
-        for (int i = 0; i < 10; i++) {
-            System.out.println(LazySingleton.getInstance());
-        }
     }
 }

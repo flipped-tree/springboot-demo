@@ -7,19 +7,14 @@ package com.example.singleton;
 public class InnerClassSingleton {
 
     private static class SingletonHolder {
-        private static final InnerClassSingleton INSTANCE = new InnerClassSingleton();
+        private static final Singleton<Integer> INSTANCE = new Singleton<>();
     }
 
     private InnerClassSingleton() {
     }
 
-    public static InnerClassSingleton getInstance() {
+    public static Singleton<Integer> getInstance() {
         return SingletonHolder.INSTANCE;
     }
 
-    public static void main(String[] args) {
-        for (int i = 0; i < 10; i++) {
-            System.out.println(InnerClassSingleton.getInstance());
-        }
-    }
 }
