@@ -11,7 +11,6 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @date 2022/1/21 10:28
  */
 public class Singleton<T> {
-    private T value;
 
     public static void main(String[] args) {
 
