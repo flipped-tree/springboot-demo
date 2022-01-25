@@ -18,7 +18,7 @@ public class GetNode {
 
         Node node = getIndexNode(node1, 2);
         assert node != null;
-        System.out.println(node.toString());
+        System.out.println(node);
     }
 
     public static int getLength(Node head) {
@@ -39,16 +39,16 @@ public class GetNode {
 
     public static Node getIndexNode(Node head, int index) {
         if (head.next == null) {
-            //链表为空
+            // 链表为空
             return null;
         }
-        //链表长度
+        // 链表长度
         int size = getLength(head);
 
         if (size <= 0 || index > size) {
             return null;
         }
-        //第一个数据
+        // 第一个数据
         Node temp = head.next;
         for (int i = 0; i < size - index; i++) {
             temp = temp.next;

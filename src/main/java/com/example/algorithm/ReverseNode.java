@@ -34,7 +34,7 @@ public class ReverseNode {
     private static void printList(ListNode head) {
         ListNode h = head;
         while (null != h) {
-            System.out.print(h.getData() + " ");
+            System.out.print(h.getData() + "->");
             h = h.getNext();
         }
     }
@@ -57,6 +57,7 @@ public class ReverseNode {
         }
         ListNode newHead = reverseList(head.next);
         head.next.next = head;
+        // 作用：清除原本指向
         head.next = null;
         return newHead;
     }
