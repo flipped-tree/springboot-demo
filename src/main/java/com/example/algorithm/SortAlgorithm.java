@@ -59,6 +59,9 @@ public class SortAlgorithm {
 
     /**
      * 快速排序
+     * 不稳定排序
+     * 时间复杂度 O(nlog2n)
+     * 空间复杂度 O(log2n)
      */
     public static void quickSort(int[] list, int low, int high) {
         if (low < high) {
@@ -73,6 +76,7 @@ public class SortAlgorithm {
 
     /**
      * 选择排序
+     * 不稳定排序
      */
     private static void selectSort(int[] array) {
         for (int i = 0; i < array.length; i++) {
@@ -90,6 +94,11 @@ public class SortAlgorithm {
 
     /**
      * 冒泡排序
+     * 稳定排序
+     * 最好状态：初始状态是正序的，一次排序就完成，时间复杂度 O(N)
+     * 最坏情况：初始状态是反序的，时间复杂度 O(N²)
+     * 时间复杂度 O(N²)
+     * 空间复杂度 O(1)
      */
     private static void bubbleSort(int[] ints) {
         for (int i = 0; i < ints.length - 1; i++) {

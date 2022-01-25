@@ -1,6 +1,10 @@
 package com.example.algorithm.tree;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+import java.util.Stack;
 
 /**
  * @author xingce
@@ -44,58 +48,39 @@ public class BinaryTree {
         }
     }
 
-    private void buildBiTree(TreeNode node, int data) {
-        //如果根结点是空,那么设置根结点,并且设置数据域
-        if (root == null) {
-            root = new TreeNode(data);
-        } else {
-            // 根结点不为空,那么判断数据是否小于当前结点的数据
-            if (data < node.getData()) {
-                //如果小于,判断当前结点是否有左叶子结点
-                if (node.getLeft() == null) {
-                    //左叶子结点为空,设置左叶子结点,并且设置数据
-                    node.setLeft(new TreeNode(data));
-                } else {
-                    //左叶子结点不为空,递归调用构建二叉树的函数
-                    buildBiTree(node.getLeft(), data);
-                }
-            } else {
-                //如果大于或等于,判断当前结点是否存在右叶子结点
-                if (node.getRight() == null) {
-                    //右叶子结点为空,设置右叶子结点,并且设置数据域
-                    node.setRight(new TreeNode(data));
-                } else {
-                    //右叶子几点不为空,递归调用构建二叉树的函数
-                    buildBiTree(node.getRight(), data);
-                }
-            }
-        }
+    public BinaryTree(int[] array, int index) {
+        root = createBinaryTree(array, index);
     }
 
-    public static BinaryTree createBiTree(int[] datas) {
-        BinaryTree binaryTree = new BinaryTree();
-        for (int data : datas) {
-            binaryTree.buildBiTree(binaryTree.getRoot(), data);
+    private static TreeNode createBinaryTree(int[] array, int index) {
+
+        TreeNode treeNode = null;
+        if (index < array.length) {
+            treeNode = new TreeNode(array[index]);
+            // 对于顺序存储的完全二叉树，如果某个节点的索引为index，其对应的左子树的索引为2*index+1，右子树为2*index+1
+            treeNode.left = createBinaryTree(array, 2 * index + 1);
+            treeNode.right = createBinaryTree(array, 2 * index + 2);
         }
-        return binaryTree;
+        return treeNode;
+
     }
 
     public static void main(String[] args) {
 
-        int[] datas = {72, 37, 29, 55, 51, 80};
-        BinaryTree biTree = createBiTree(datas);
+        int[] datas = {1, 2, 3, 4, 5, 6};
+        TreeNode root = createBinaryTree(datas, 0);
         // 前序遍历
-        List<Integer> preOrder = preOrderTraversal(biTree.getRoot());
+        List<Integer> preOrder = preOrderTraversal(root);
         // 中序遍历
-        List<Integer> inOrder = inOrderTraversal(biTree.getRoot());
+        List<Integer> inOrder = inOrderTraversal(root);
         // 后续遍历
-        List<Integer> postOrder = postOrderTraversal(biTree.getRoot());
+        List<Integer> postOrder = postOrderTraversal(root);
         // 层序遍历
-        List<List<Integer>> levelOrder = levelOrder(biTree.getRoot());
-        System.out.println(preOrder);
-        System.out.println(postOrder);
-        System.out.println(inOrder);
-        System.out.println(levelOrder);
+        List<List<Integer>> levelOrder = levelOrder(root);
+        System.out.println("preOrder is : " + preOrder);
+        System.out.println("inOrder is : " + inOrder);
+        System.out.println("postOrder is : " + postOrder);
+        System.out.println("levelOrder is : " + levelOrder);
     }
 
     /**
@@ -142,7 +127,10 @@ public class BinaryTree {
         return res;
     }
 
-    private static List<Integer> preOrder(TreeNode root) {
+    /**
+     * 前序遍历 递归
+     */
+    private static List<Integer> preOrderRecursion(TreeNode root) {
         List<Integer> res = new ArrayList<>();
         reverse(root, res);
         return res;
