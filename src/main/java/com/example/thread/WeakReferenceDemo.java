@@ -1,4 +1,4 @@
-package com.example.threadLocal;
+package com.example.thread;
 
 import java.lang.ref.WeakReference;
 
