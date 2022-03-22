@@ -1,6 +1,7 @@
 package com.example.thread.producer;
 
 import java.util.LinkedList;
+import java.util.stream.IntStream;
 
 /**
  * @author xingce
@@ -10,15 +11,9 @@ public class ProducerAndCustomer {
     public static void main(String[] args) {
         Storage storage = new Storage();
 
-        for (int i = 1; i < 6; i++) {
-            int finalI = i;
-            new Thread(() -> storage.produce("生产者:" + finalI)).start();
-        }
+        IntStream.range(1, 6).forEach(s -> new Thread(() -> storage.produce("生产者:" + s)).start());
 
-        for (int i = 1; i < 4; i++) {
-            int finalI = i;
-            new Thread(() -> storage.consume("消费者:" + finalI)).start();
-        }
+        IntStream.range(1, 4).forEach(s -> new Thread(() -> storage.consume("消费者:" + s)).start());
     }
 
     static class Storage {
