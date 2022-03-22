@@ -5,6 +5,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.IntStream;
 
 /**
  * @author xingce
@@ -18,11 +19,9 @@ public class Singleton<T> {
 
         ExecutorService service = new ThreadPoolExecutor(5, 5, 10, TimeUnit.SECONDS, new ArrayBlockingQueue<>(10),
                 r -> new Thread(r, "thread-pool-" + num.getAndIncrement() + ": "));
-        for (int i = 0; i < 10; i++) {
-            service.execute(() -> {
-                System.out.println(Thread.currentThread().getName() + " " + CasSingleton.getInstance());
-            });
-        }
+        IntStream.range(0, 10).forEach(count ->
+                service.execute(() -> System.out.println(Thread.currentThread().getName() + " " +
+                        CasSingleton.getInstance())));
 
         service.shutdown();
     }
