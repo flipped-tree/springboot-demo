@@ -6,10 +6,6 @@ package com.example.proxy.jdk;
  */
 public interface SendMessage {
 
-    default void send() {
-        System.out.println("发送短信");
-    }
-
     void sendMessage(String message);
 
 }
