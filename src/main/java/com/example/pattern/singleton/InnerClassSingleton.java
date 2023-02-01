@@ -1,4 +1,4 @@
-package com.example.singleton;
+package com.example.pattern.singleton;
 
 /**
  * @author xingce
@@ -7,13 +7,13 @@ package com.example.singleton;
 public class InnerClassSingleton {
 
     private static class SingletonHolder {
-        private static final Singleton<Integer> INSTANCE = new Singleton<>();
+        private static final Singleton INSTANCE = new Singleton();
     }
 
     private InnerClassSingleton() {
     }
 
-    public static Singleton<Integer> getInstance() {
+    public static Singleton getInstance() {
         return SingletonHolder.INSTANCE;
     }
 

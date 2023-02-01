@@ -1,4 +1,4 @@
-package com.example.singleton;
+package com.example.pattern.singleton;
 
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -7,18 +7,18 @@ import java.util.concurrent.atomic.AtomicReference;
  * @date 2021/03/26 23:05
  */
 public class CasSingleton {
-    private static final AtomicReference<Singleton<Integer>> INSTANCE = new AtomicReference<>();
+    private static final AtomicReference<Singleton> INSTANCE = new AtomicReference<>();
 
     private CasSingleton() {
     }
 
-    public static Singleton<Integer> getInstance() {
+    public static Singleton getInstance() {
         while (true) {
-            Singleton<Integer> singleton = INSTANCE.get();
+            Singleton singleton = INSTANCE.get();
             if (singleton != null) {
                 return singleton;
             }
-            singleton = new Singleton<>();
+            singleton = new Singleton();
             if (INSTANCE.compareAndSet(null, singleton)) {
                 return singleton;
             }

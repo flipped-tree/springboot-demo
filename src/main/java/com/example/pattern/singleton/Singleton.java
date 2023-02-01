@@ -1,4 +1,4 @@
-package com.example.singleton;
+package com.example.pattern.singleton;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ExecutorService;
@@ -11,7 +11,7 @@ import java.util.stream.IntStream;
  * @author xingce
  * @date 2022/1/21 10:28
  */
-public class Singleton<T> {
+public class Singleton {
 
     public static void main(String[] args) {
 
