@@ -9,7 +9,7 @@ public interface Button {
 
     void onClick();
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         if (System.getProperty("os.name").equals("Windows 10")) {
             Dialog dialog = new HtmlDialog();
             dialog.renderWindows();
