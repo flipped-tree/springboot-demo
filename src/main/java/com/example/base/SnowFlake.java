@@ -1,7 +1,7 @@
 package com.example.base;
 
 /**
- * @author 一灯架构
+ * @author xingce
  * @apiNote 雪花算法
  **/
 public class SnowFlake {
