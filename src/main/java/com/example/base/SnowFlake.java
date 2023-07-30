@@ -1,6 +1,12 @@
 package com.example.base;
 
 /**
+ * <a href="https://zhuanlan.zhihu.com/p/455695292">雪花算法</a>
+ * 第 1 位： 符号位，暂时不用。
+ * 第 2~42 位：共41位，时间戳，单位是毫秒，可以支撑大约69年
+ * 第 43~52位：共10位，机器ID，最多可容纳1024台机器
+ * 第 53~64 位：共12位，序列号，是自增值，表示同一毫秒内产生的ID，单台机器每毫秒最多可生成4096个订单ID
+ *
  * @author xingce
  * @apiNote 雪花算法
  **/
@@ -52,6 +58,7 @@ public class SnowFlake {
 
     /**
      * 构造方法
+     * 
      * @param machineId 机器ID
      */
     public SnowFlake(long machineId) {
