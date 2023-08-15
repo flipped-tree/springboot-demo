@@ -13,19 +13,19 @@ import org.springframework.stereotype.Component;
 @Component
 public class PipelineExecutor {
     private Map<Class<? extends PipelineContext>,
-        List<? extends ContextHandler<? extends PipelineContext>>> pipelineRouteMap;
+        List<? extends ContextHandler<? super PipelineContext>>> pipelineRouteMap;
 
     @Autowired
     public void setPipelineRouteMap(Map<Class<? extends PipelineContext>,
-        List<? extends ContextHandler<? extends PipelineContext>>> pipelineRouteMap) {
+        List<? extends ContextHandler<? super PipelineContext>>> pipelineRouteMap) {
         this.pipelineRouteMap = pipelineRouteMap;
     }
 
     public boolean execute(PipelineContext context) {
         Class<? extends PipelineContext> pipelineClass = context.getClass();
-        List<? extends ContextHandler<? extends PipelineContext>> contextHandlers = pipelineRouteMap.get(pipelineClass);
-        for (ContextHandler<? extends PipelineContext> handler : contextHandlers) {
-
+        List<? extends ContextHandler<? super PipelineContext>> contextHandlers = pipelineRouteMap.get(pipelineClass);
+        for (ContextHandler<? super PipelineContext> handler : contextHandlers) {
+            handler.handle(context);
         }
         return false;
     }
