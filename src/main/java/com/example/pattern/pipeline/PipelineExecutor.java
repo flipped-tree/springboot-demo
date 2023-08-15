@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
+ * PECS(producer extends consumer super)
  * @author xingce
  * @date 2023/8/5 16:00
  */
