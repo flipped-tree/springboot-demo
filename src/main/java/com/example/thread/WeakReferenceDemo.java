@@ -13,14 +13,14 @@ public class WeakReferenceDemo {
         // 弱引用
         WeakReference<Object> weakReference = new WeakReference<>(object);
         // object和弱引用指向同一个对象
-        System.out.println(object);
-        System.out.println(weakReference.get());
+        System.out.println("strongReference:" + object);
+        System.out.println("weakReference:  " + weakReference.get());
         // 手动回收object，object只剩下弱引用
         object = null;
-        System.out.println(weakReference.get());
+        System.out.println("weakReference:  " + weakReference.get());
         // 手动唤醒gc
         System.gc();
-        System.out.println(object);
-        System.out.println(weakReference.get());
+        System.out.println("strongReference:" + object);
+        System.out.println("weakReference:  " + weakReference.get());
     }
 }

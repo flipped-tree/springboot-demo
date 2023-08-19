@@ -35,8 +35,8 @@ public class SequencePrint1 {
 
     public static void main(String[] args) {
         Print print = new Print(1, 10);
+        new Thread(() -> print.print("C", 3, 1)).start();
         new Thread(() -> print.print("A", 1, 2)).start();
         new Thread(() -> print.print("B", 2, 3)).start();
-        new Thread(() -> print.print("C", 3, 1)).start();
     }
 }
