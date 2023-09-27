@@ -40,12 +40,12 @@ public class SortAlgorithm {
         // 数组的第一个值作为中轴（分界点或关键数据）
         int tmp = list[low];
         while (low < high) {
-            while (low < high && list[high] > tmp) {
+            while (low < high && list[high] >= tmp) {
                 high--;
             }
             // 比中轴小的记录移到低端
             list[low] = list[high];
-            while (low < high && list[low] < tmp) {
+            while (low < high && list[low] <= tmp) {
                 low++;
             }
             // 比中轴大的记录移到高端
