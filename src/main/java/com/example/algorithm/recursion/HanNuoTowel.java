@@ -13,7 +13,6 @@ public class HanNuoTowel {
     private static void move(int n, String from, String to, String depend) {
         if (n <= 0) {
             System.out.println("number error");
-            return;
         } else if (n == 1) {
             moveOne(from, to);
         } else {

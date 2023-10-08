@@ -7,7 +7,8 @@ package com.example.pattern.singleton;
 public class LazySingleton {
     private static volatile Singleton INSTANCE;
 
-    private LazySingleton() {}
+    private LazySingleton() {
+    }
 
     public static Singleton getInstance() {
         if (INSTANCE == null) {

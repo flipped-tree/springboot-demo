@@ -19,7 +19,7 @@ public class ValidationAop {
     }
 
     @Before("pointCut()")
-    public void before(JoinPoint joinPoint){
+    public void before(JoinPoint joinPoint) {
         Object[] args = joinPoint.getArgs();
         System.out.println(args[0]);
     }

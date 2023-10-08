@@ -1,7 +1,5 @@
 package com.example.redis;
 
-import java.util.concurrent.TimeUnit;
-
 import org.apache.commons.lang3.StringUtils;
 import org.redisson.Redisson;
 import org.redisson.api.RLock;
@@ -9,6 +7,8 @@ import org.redisson.api.RedissonClient;
 import org.redisson.config.Config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.concurrent.TimeUnit;
 
 public class RedissonUtils {
 
@@ -20,7 +20,8 @@ public class RedissonUtils {
     private Config config = null;
     private static RedissonClient redisson = null;
 
-    public RedissonUtils() {}
+    public RedissonUtils() {
+    }
 
     public static RedissonClient getRedisson() {
         return redisson;
@@ -46,7 +47,7 @@ public class RedissonUtils {
 
         if (!StringUtils.isEmpty(this.getPwd())) {
             config.useSingleServer().setAddress(this.getAddNodeAddress()).setPassword(this.getPwd())
-                .setDatabase(dataBaseNum);
+                    .setDatabase(dataBaseNum);
         } else {
             config.useSingleServer().setAddress(this.getAddNodeAddress()).setDatabase(dataBaseNum);
         }

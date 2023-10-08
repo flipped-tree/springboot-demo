@@ -8,7 +8,7 @@ import net.sf.cglib.proxy.Enhancer;
  */
 public class CglibFactory {
 
-    public static Object getObject(Class<?> clazz){
+    public static Object getObject(Class<?> clazz) {
         Enhancer enhancer = new Enhancer();
         enhancer.setClassLoader(clazz.getClassLoader());
         enhancer.setSuperclass(clazz);

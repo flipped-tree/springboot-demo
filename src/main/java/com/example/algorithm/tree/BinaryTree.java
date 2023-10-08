@@ -1,10 +1,6 @@
 package com.example.algorithm.tree;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * @author xingce
@@ -12,7 +8,7 @@ import java.util.Stack;
  */
 public class BinaryTree {
 
-    private TreeNode root;
+    private final TreeNode root;
 
     private TreeNode getRoot() {
         return root;

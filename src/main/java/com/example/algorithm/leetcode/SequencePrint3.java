@@ -19,7 +19,7 @@ public class SequencePrint3 {
         }
 
         public void print(String letter, int mold) {
-            for (int i = 0; i < printTimes;) {
+            for (int i = 0; i < printTimes; ) {
                 lock.lock();
                 while (state % 3 == mold) {
                     state++;

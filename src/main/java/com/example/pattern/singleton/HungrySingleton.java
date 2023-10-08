@@ -7,7 +7,8 @@ package com.example.pattern.singleton;
 public class HungrySingleton {
     private static final Singleton INSTANCE = new Singleton();
 
-    private HungrySingleton(){}
+    private HungrySingleton() {
+    }
 
     public static Singleton getInstance() {
         return INSTANCE;

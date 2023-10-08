@@ -21,7 +21,7 @@ public class SequencePrint5 {
         b = new Thread(() -> {
             for (int i = 0; i < 10; i++) {
                 LockSupport.park(b);
-                System.out.print((char)('A' + i));
+                System.out.print((char) ('A' + i));
                 LockSupport.unpark(a);
             }
         });

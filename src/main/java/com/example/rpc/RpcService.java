@@ -7,6 +7,7 @@ package com.example.rpc;
 public interface RpcService {
     /**
      * say hello method
+     *
      * @param message
      * @return
      */

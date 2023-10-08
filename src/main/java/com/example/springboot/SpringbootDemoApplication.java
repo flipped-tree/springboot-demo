@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * @author xingce
- *
+ * <p>
  * 使用非内置tomcat 继承 SpringBootServletInitializer，实现confirure方法
  */
 @SpringBootApplication(scanBasePackages = "com.example.springboot.*")
