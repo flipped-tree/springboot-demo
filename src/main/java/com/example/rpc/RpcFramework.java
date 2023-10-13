@@ -36,7 +36,7 @@ public class RpcFramework {
                     ObjectOutputStream output = new ObjectOutputStream(socket.getOutputStream());
                     output.writeObject(result);
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    
                 }
             }).start();
         }

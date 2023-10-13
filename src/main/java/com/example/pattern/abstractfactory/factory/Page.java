@@ -21,14 +21,16 @@ public abstract class Page {
     }
 
     public void output() {
-        String fileName = title + ".html";
-        try (Writer writer = new FileWriter(fileName)) {
+        try {
+            String filename = title + ".html";
+            Writer writer = new FileWriter(filename);
             writer.write(this.makeHTML());
-            System.out.println(fileName + " succeed");
+            writer.close();
+            System.out.println(filename + " 编写完成。");
         } catch (IOException e) {
-            throw new RuntimeException(e);
+
         }
     }
 
-    protected abstract String makeHTML();
+    public abstract String makeHTML();
 }

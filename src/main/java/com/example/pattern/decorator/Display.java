@@ -1,13 +1,13 @@
 package com.example.pattern.decorator;
 
 public abstract class Display {
-    abstract int getColumns();
+    public abstract int getColumns();               // 获取横向字符数
 
-    abstract int getRows();
+    public abstract int getRows();                  // 获取纵向行数
 
-    abstract String getRowText(int row);
+    public abstract String getRowText(int row);     // 获取第row行的字符串
 
-    public final void show() {
+    public void show() {                            // 全部显示
         for (int i = 0; i < getRows(); i++) {
             System.out.println(getRowText(i));
         }

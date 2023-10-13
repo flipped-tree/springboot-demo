@@ -43,7 +43,7 @@ public class ThreadPoolExecutorDemo {
                         System.out.println("重新放进线程池");
                         poolExecutor.getQueue().put(r);
                     } catch (InterruptedException e) {
-                        e.printStackTrace();
+                        
                     }
                 });
         long start = System.currentTimeMillis();
@@ -53,7 +53,7 @@ public class ThreadPoolExecutorDemo {
                 try {
                     Thread.sleep(5L);
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    
                 }
                 int threadSize = executor.getActiveCount();
                 int queueCurrentSize = executor.getQueue().size();

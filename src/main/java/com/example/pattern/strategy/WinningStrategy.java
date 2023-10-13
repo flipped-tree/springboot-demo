@@ -11,7 +11,6 @@ public class WinningStrategy implements Strategy {
         random = new Random(seed);
     }
 
-    @Override
     public Hand nextHand() {
         if (!won) {
             prevHand = Hand.getHand(random.nextInt(3));
@@ -19,7 +18,6 @@ public class WinningStrategy implements Strategy {
         return prevHand;
     }
 
-    @Override
     public void study(boolean win) {
         won = win;
     }

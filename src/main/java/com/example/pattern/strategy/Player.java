@@ -3,36 +3,36 @@ package com.example.pattern.strategy;
 public class Player {
     private final String name;
     private final Strategy strategy;
-    private int winCounts;
-    private int loseCounts;
-    private int gameCounts;
+    private int wincount;
+    private int losecount;
+    private int gamecount;
 
-    public Player(String name, Strategy strategy) {
+    public Player(String name, Strategy strategy) {         // 赋予姓名和策略
         this.name = name;
         this.strategy = strategy;
     }
 
-    public Hand nextHand() {
+    public Hand nextHand() {                                // 策略决定下一局要出的手势
         return strategy.nextHand();
     }
 
-    public void win() {
+    public void win() {                 // 胜
         strategy.study(true);
-        winCounts++;
-        gameCounts++;
+        wincount++;
+        gamecount++;
     }
 
-    public void lose() {
+    public void lose() {                // 负
         strategy.study(false);
-        loseCounts++;
-        gameCounts++;
+        losecount++;
+        gamecount++;
     }
 
-    public void even() {
-        gameCounts++;
+    public void even() {                // 平
+        gamecount++;
     }
 
     public String toString() {
-        return "{" + name + ":" + gameCounts + " games, " + winCounts + " wins, " + loseCounts + " lose." + "}";
+        return "[" + name + ":" + gamecount + " games, " + wincount + " win, " + losecount + " lose" + "]";
     }
 }

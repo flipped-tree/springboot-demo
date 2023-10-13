@@ -6,13 +6,16 @@ public class ProbStrategy implements Strategy {
     private final Random random;
     private int prevHandValue = 0;
     private int currentHandValue = 0;
-    private final int[][] history = {{1, 1, 1,}, {1, 1, 1,}, {1, 1, 1,}};
+    private final int[][] history = {
+            {1, 1, 1,},
+            {1, 1, 1,},
+            {1, 1, 1,},
+    };
 
     public ProbStrategy(int seed) {
         random = new Random(seed);
     }
 
-    @Override
     public Hand nextHand() {
         int bet = random.nextInt(getSum(currentHandValue));
         int handValue;
@@ -28,15 +31,14 @@ public class ProbStrategy implements Strategy {
         return Hand.getHand(handValue);
     }
 
-    private int getSum(int currentHandValue) {
+    private int getSum(int hv) {
         int sum = 0;
         for (int i = 0; i < 3; i++) {
-            sum += history[currentHandValue][i];
+            sum += history[hv][i];
         }
         return sum;
     }
 
-    @Override
     public void study(boolean win) {
         if (win) {
             history[prevHandValue][currentHandValue]++;

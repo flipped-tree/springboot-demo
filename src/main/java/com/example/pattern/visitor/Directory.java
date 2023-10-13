@@ -5,38 +5,35 @@ import java.util.Iterator;
 import java.util.List;
 
 public class Directory extends Entry {
+    private final String name;                    // 文件夹名字
+    private final List<Entry> dir = new ArrayList<>();      // 目录条目集合
 
-    private final String name;
-    private final List<Entry> directoryList = new ArrayList<>();
-
-    public Directory(String name) {
+    public Directory(String name) {         // 构造函数
         this.name = name;
     }
 
-    @Override
-    public String getName() {
+    public String getName() {               // 获取名字
         return name;
     }
 
-    @Override
-    public int getSize() {
+    public int getSize() {                  // 获取大小
         int size = 0;
-        for (Entry next : directoryList) {
-            size += next.getSize();
+        for (Entry entry : dir) {
+            size += entry.getSize();
         }
         return size;
     }
 
-    public Entry add(Entry entry) {
-        directoryList.add(entry);
+    public Entry add(Entry entry) {         // 增加目录条目
+        dir.add(entry);
         return this;
     }
 
-    public Iterator<Entry> iterator() {
-        return directoryList.iterator();
+    public Iterator<Entry> iterator() {      // 生成Iterator
+        return dir.iterator();
     }
 
-    public void accept(Visitor visitor) {
-        visitor.visit(this);
+    public void accept(Visitor v) {         // 接受访问者的访问
+        v.visit(this);
     }
 }

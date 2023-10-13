@@ -1,31 +1,31 @@
 package com.example.pattern.prototype;
 
-public class UnderlinePen implements Product {
-    private final char ulChar;
+import com.example.pattern.prototype.framework.Product;
 
-    public UnderlinePen(char ulChar) {
-        this.ulChar = ulChar;
+public class UnderlinePen implements Product {
+    private final char ulchar;
+
+    public UnderlinePen(char ulchar) {
+        this.ulchar = ulchar;
     }
 
-    @Override
-    public void use(String string) {
-        int length = string.getBytes().length;
-        System.out.println("\"" + string + "\"");
+    public void use(String s) {
+        int length = s.getBytes().length;
+        System.out.println("\"" + s + "\"");
         System.out.print(" ");
         for (int i = 0; i < length; i++) {
-            System.out.print(ulChar);
+            System.out.print(ulchar);
         }
         System.out.println();
     }
 
-    @Override
     public Product createClone() {
-        Product product;
+        Product p = null;
         try {
-            product = (Product) clone();
+            p = (Product) clone();
         } catch (CloneNotSupportedException e) {
-            throw new RuntimeException(e);
+
         }
-        return product;
+        return p;
     }
 }

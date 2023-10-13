@@ -1,7 +1,7 @@
 package com.example.pattern.iterator;
 
 public class Book {
-    private String name;
+    private final String name;
 
     public Book(String name) {
         this.name = name;
@@ -9,9 +9,5 @@ public class Book {
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 }

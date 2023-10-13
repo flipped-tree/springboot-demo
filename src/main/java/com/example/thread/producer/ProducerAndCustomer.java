@@ -28,7 +28,7 @@ public class ProducerAndCustomer {
                         // 由于条件不满足，生产阻塞
                         list.wait();
                     } catch (InterruptedException e) {
-                        e.printStackTrace();
+                        
                     }
                 }
 
@@ -50,7 +50,7 @@ public class ProducerAndCustomer {
                         // 由于条件不满足，消费阻塞
                         list.wait();
                     } catch (InterruptedException e) {
-                        e.printStackTrace();
+                        
                     }
                 }
 

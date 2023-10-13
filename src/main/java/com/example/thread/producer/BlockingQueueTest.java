@@ -32,7 +32,7 @@ public class BlockingQueueTest {
                     System.out.println(Thread.currentThread().getName() + "|生产者|" + i);
                     sharedQueue.put(i);
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    
                 }
             }
         }
@@ -52,7 +52,7 @@ public class BlockingQueueTest {
                 try {
                     System.out.println(Thread.currentThread().getName() + "|消费者|" + sharedQueue.take());
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    
                 }
             }
         }

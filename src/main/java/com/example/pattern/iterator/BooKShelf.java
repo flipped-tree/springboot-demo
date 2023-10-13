@@ -1,11 +1,15 @@
 package com.example.pattern.iterator;
 
-public class BooKShelf implements Aggregate {
+public class BookShelf implements Aggregate {
     private final Book[] books;
-    private int last;
+    private int last = 0;
 
-    public BooKShelf(int maxsize) {
+    public BookShelf(int maxsize) {
         this.books = new Book[maxsize];
+    }
+
+    public Book getBookAt(int index) {
+        return books[index];
     }
 
     public void appendBook(Book book) {
@@ -13,15 +17,10 @@ public class BooKShelf implements Aggregate {
         last++;
     }
 
-    public Book getBookAt(int index) {
-        return books[index];
-    }
-
     public int getLength() {
         return last;
     }
 
-    @Override
     public Iterator iterator() {
         return new BookShelfIterator(this);
     }

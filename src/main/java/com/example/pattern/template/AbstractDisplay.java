@@ -1,17 +1,17 @@
 package com.example.pattern.template;
 
-public abstract class AbstractDisplay {
-    abstract void open();
+public abstract class AbstractDisplay { // 抽象类AbstractDisplay
+    public abstract void open();        // 交给子类去实现的抽象方法(1) open
 
-    abstract void print();
+    public abstract void print();       // 交给子类去实现的抽象方法(2) print
 
-    abstract void close();
+    public abstract void close();       // 交给子类去实现的抽象方法(3) close
 
-    public void display() {
-        open();
-        for (int i = 0; i < 5; i++) {
+    public final void display() {       // 本抽象类中实现的display方法
+        open();                         // 首先打开…
+        for (int i = 0; i < 5; i++) {   // 循环调用5次print
             print();
         }
-        close();
+        close();                        // …最后关闭。这就是display方法所实现的功能
     }
 }

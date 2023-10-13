@@ -1,34 +1,34 @@
 package com.example.pattern.prototype;
 
+import com.example.pattern.prototype.framework.Product;
+
 public class MessageBox implements Product {
-    private final char decoChar;
+    private final char decochar;
 
-    public MessageBox(char decoChar) {
-        this.decoChar = decoChar;
+    public MessageBox(char decochar) {
+        this.decochar = decochar;
     }
 
-    @Override
-    public void use(String string) {
-        int length = string.getBytes().length;
+    public void use(String s) {
+        int length = s.getBytes().length;
         for (int i = 0; i < length + 4; i++) {
-            System.out.print(decoChar);
+            System.out.print(decochar);
         }
         System.out.println();
-        System.out.println(decoChar + " " + string + " " + decoChar);
+        System.out.println(decochar + " " + s + " " + decochar);
         for (int i = 0; i < length + 4; i++) {
-            System.out.print(decoChar);
+            System.out.print(decochar);
         }
         System.out.println();
     }
 
-    @Override
     public Product createClone() {
-        Product product;
+        Product p = null;
         try {
-            product = (Product) clone();
+            p = (Product) clone();
         } catch (CloneNotSupportedException e) {
-            throw new RuntimeException(e);
+
         }
-        return product;
+        return p;
     }
 }

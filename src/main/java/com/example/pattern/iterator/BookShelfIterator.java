@@ -1,23 +1,20 @@
 package com.example.pattern.iterator;
 
 public class BookShelfIterator implements Iterator {
-
-    private final BooKShelf booKShelf;
-
+    private final BookShelf bookShelf;
     private int index;
 
-    public BookShelfIterator(BooKShelf booKShelf) {
-        this.booKShelf = booKShelf;
+    public BookShelfIterator(BookShelf bookShelf) {
+        this.bookShelf = bookShelf;
+        this.index = 0;
     }
 
-    @Override
     public boolean hasNext() {
-        return index < booKShelf.getLength();
+        return index < bookShelf.getLength();
     }
 
-    @Override
-    public Book next() {
-        Book book = booKShelf.getBookAt(index);
+    public Object next() {
+        Book book = bookShelf.getBookAt(index);
         index++;
         return book;
     }
