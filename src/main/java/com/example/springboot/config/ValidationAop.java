@@ -1,5 +1,6 @@
 package com.example.springboot.config;
 
+import cn.hutool.json.JSONUtil;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -20,8 +21,7 @@ public class ValidationAop {
 
     @Before("pointCut()")
     public void before(JoinPoint joinPoint) {
-        Object[] args = joinPoint.getArgs();
-        System.out.println(args[0]);
+        System.out.println(JSONUtil.toJsonStr(joinPoint));
     }
 
 }
