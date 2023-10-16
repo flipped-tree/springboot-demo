@@ -1,4 +1,4 @@
-package com.example.algorithm.leetcode;
+package com.example.algorithm.sequenceprint;
 
 import java.util.Arrays;
 import java.util.HashMap;
