@@ -1,5 +1,6 @@
-package com.example.springboot.pipeline;
+package com.example.springboot.config;
 
+import com.example.springboot.pipeline.*;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
