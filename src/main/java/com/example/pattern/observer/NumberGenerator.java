@@ -1,10 +1,10 @@
 package com.example.pattern.observer;
 
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.List;
 
 public abstract class NumberGenerator {
-    private final ArrayList observers = new ArrayList();        // 保存Observer们
+    private final List<Observer> observers = new ArrayList<>();        // 保存Observer们
 
     public void addObserver(Observer observer) {    // 注册Observer
         observers.add(observer);
@@ -15,9 +15,7 @@ public abstract class NumberGenerator {
     }
 
     public void notifyObservers() {               // 向Observer发送通知
-        Iterator it = observers.iterator();
-        while (it.hasNext()) {
-            Observer o = (Observer) it.next();
+        for (Observer o : observers) {
             o.update(this);
         }
     }
