@@ -1,4 +1,4 @@
-package com.example.algorithm.tree;
+package com.example.algorithm;
 
 import java.util.*;
 

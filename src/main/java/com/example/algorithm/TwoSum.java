@@ -1,4 +1,4 @@
-package com.example.algorithm.sequenceprint;
+package com.example.algorithm;
 
 import java.util.Arrays;
 import java.util.HashMap;
