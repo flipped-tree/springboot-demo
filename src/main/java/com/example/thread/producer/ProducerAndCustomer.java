@@ -44,7 +44,7 @@ public class ProducerAndCustomer {
         public void consume(String consumer) {
             synchronized (list) {
                 //如果仓库存储量不足
-                while (list.size() == 0) {
+                while (list.isEmpty()) {
                     System.out.println("仓库已空，【" + consumer + "】： 暂时不能执行消费任务!");
                     try {
                         // 由于条件不满足，消费阻塞
