@@ -24,26 +24,22 @@ public class MatrixPrint {
         while (top <= bottom && left <= right) {
             // 从左往右
             for (int i = left; i <= right; i++) {
-                int i1 = array[top][i];
-                resultList.add(i1);
+                resultList.add(array[top][i]);
             }
             top++;
             // 从上往下
             for (int i = top; i <= bottom; i++) {
-                int i1 = array[i][right];
-                resultList.add(i1);
+                resultList.add(array[i][right]);
             }
             right--;
             // 从右往左
             for (int i = right; i >= left; i--) {
-                int i1 = array[bottom][i];
-                resultList.add(i1);
+                resultList.add(array[bottom][i]);
             }
             bottom--;
             // 从下往上
             for (int i = bottom; i >= top; i--) {
-                int i1 = array[i][left];
-                resultList.add(i1);
+                resultList.add(array[i][left]);
             }
             left++;
         }
