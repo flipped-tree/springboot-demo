@@ -31,21 +31,4 @@ public class Code_2 {
         listNode.next = addTwoListNode(l1, l2, sum / 10);
         return listNode;
     }
-
-    private static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        void printAllNodes() {
-            ListNode node = this;
-            while (node != null) {
-                System.out.print(node.val);
-                node = node.next;
-            }
-        }
-    }
 }
