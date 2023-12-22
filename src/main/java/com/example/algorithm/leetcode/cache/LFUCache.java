@@ -7,7 +7,7 @@ import java.util.Map;
 public class LFUCache {
     // 存储缓存的内容
     Map<Integer, Node> cache;
-    // 春初每个频次对应的双向链表
+    // 存储每个频次对应的双向链表
     Map<Integer, LinkedHashSet<Node>> freqMap;
     int size;
     int capacity;
