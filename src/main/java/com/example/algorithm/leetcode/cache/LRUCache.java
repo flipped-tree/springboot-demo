@@ -11,7 +11,8 @@ public class LRUCache {
 
     private int capacity;
 
-    private Node head, tail;
+    private Node head;
+    private Node tail;
 
     public LRUCache(int capacity) {
         this.capacity = capacity;
