@@ -77,6 +77,7 @@ public class BinaryTree {
         System.out.println("inOrder is : " + inOrder);
         System.out.println("postOrder is : " + postOrder);
         System.out.println("levelOrder is : " + levelOrder);
+        System.out.println(pathSum(root, 0));
     }
 
     /**
@@ -105,7 +106,7 @@ public class BinaryTree {
         List<List<Integer>> res = new ArrayList<>();
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
-        while (queue.size() > 0) {
+        while (!queue.isEmpty()) {
             int size = queue.size();
             ArrayList<Integer> tmp = new ArrayList<>();
             for (int i = 0; i < size; ++i) {
@@ -169,7 +170,7 @@ public class BinaryTree {
     private static List<Integer> inOrderTraversal(TreeNode root) {
         List<Integer> list = new ArrayList<>();
         Stack<TreeNode> stack = new Stack<>();
-        while (stack.size() > 0 || root != null) {
+        while (!stack.isEmpty() || root != null) {
             if (root != null) {
                 stack.push(root);
                 root = root.left;
@@ -189,7 +190,7 @@ public class BinaryTree {
         List<Integer> result = new ArrayList<>();
         Stack<TreeNode> stack = new Stack<>();
         TreeNode prev = null;
-        while (stack.size() > 0 || root != null) {
+        while (!stack.isEmpty() || root != null) {
             while (root != null) {
                 stack.push(root);
                 root = root.left;
@@ -254,6 +255,30 @@ public class BinaryTree {
         } else {
             return Math.max(getHeight(root.left), getHeight(root.right)) + 1;
         }
+    }
+
+    static int pathSum(TreeNode root, int targetSum) {
+        if (root == null) {
+            return 0;
+        }
+        int res = rootSum(root, targetSum);
+        res = res + pathSum(root.left, targetSum);
+        res = res + pathSum(root.right, targetSum);
+        return res;
+    }
+
+    static int rootSum(TreeNode root, long targetSum) {
+        int res = 0;
+        if (root == null) {
+            return 0;
+        }
+        int val = root.data;
+        if (val == targetSum) {
+            res++;
+        }
+        res = res + rootSum(root.left, targetSum-val);
+        res = res + rootSum(root.right, targetSum-val);
+        return res;
     }
 
 }

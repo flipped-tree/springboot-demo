@@ -5,14 +5,14 @@ import java.util.Map;
 
 public class LRUCache {
 
-    private static Map<Integer, Node> cache = new HashMap<>();
+    private static final Map<Integer, Node> cache = new HashMap<>();
 
     private int size;
 
-    private int capacity;
+    private final int capacity;
 
-    private Node head;
-    private Node tail;
+    private final Node head;
+    private final Node tail;
 
     public LRUCache(int capacity) {
         this.capacity = capacity;

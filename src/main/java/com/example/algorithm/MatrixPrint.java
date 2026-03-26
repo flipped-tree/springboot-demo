@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class MatrixPrint {
     public static void main(String[] args) {
-        int[][] matrix = {{1, 2, 3, 4}, {5, 6, 7, 8}};
+        int[][] matrix = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}};
         List<Integer> integers = printMatrix(matrix);
         System.out.println(integers);
     }
@@ -33,13 +33,17 @@ public class MatrixPrint {
             }
             right--;
             // 从右往左
-            for (int i = right; i >= left; i--) {
-                resultList.add(array[bottom][i]);
+            if (top <= bottom) {
+                for (int i = right; i >= left; i--) {
+                    resultList.add(array[bottom][i]);
+                }
             }
             bottom--;
-            // 从下往上
-            for (int i = bottom; i >= top; i--) {
-                resultList.add(array[i][left]);
+            // 从下到上
+            if (left <= right) {
+                for (int i = bottom; i >= top; i--) {
+                    resultList.add(array[i][left]);
+                }
             }
             left++;
         }
