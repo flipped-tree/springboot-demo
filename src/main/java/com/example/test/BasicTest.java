@@ -54,6 +54,32 @@ public class BasicTest {
         System.out.println(summaryRanges(nums));
 //        int[] ints = {1, 3, 5, 4, 2};
 //        nextPermutation(ints);
+
+        int[] s = {1, 2, 3, 4};
+        int[] ints = productExceptSelf(s);
+        System.out.println(Arrays.toString(ints));
+    }
+
+    static int[] productExceptSelf(int[] nums) {
+        int len = nums.length;
+        int[] l = new int[len];
+        int[] r = new int[len];
+
+        l[0] = 1;
+        for (int i = 1; i < len; i++) {
+            l[i] = l[i - 1] * nums[i - 1];
+        }
+
+        r[len - 1] = 1;
+        for (int i = len - 2; i >= 0; i--) {
+            r[i] = r[i + 1] * nums[i + 1];
+        }
+
+        int[] answer = new int[len];
+        for (int i = 0; i < len; i++) {
+            answer[i] = l[i] * r[i];
+        }
+        return answer;
     }
 
     static void nextPermutation(int[] nums) {
@@ -88,7 +114,7 @@ public class BasicTest {
         nums[left] = temp;
     }
 
-    private static void revert(int[] nums,int left,int right) {
+    private static void revert(int[] nums, int left, int right) {
         while (left < right) {
             int temp = nums[right];
             nums[right] = nums[left];
