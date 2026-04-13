@@ -19,7 +19,7 @@ public class LeetCode {
         int i = minPathSum(grid);
         System.out.println("min path:" + i);
 
-        int[] nums = {5,4,-1,7,8};
+        int[] nums = {5, 4, -1, 7, 8};
         int res = maxSubArray(nums);
         System.out.println("max sub array:" + res);
     }

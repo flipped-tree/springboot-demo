@@ -46,12 +46,103 @@ public class BasicTest {
 //        System.out.println(ints[0][1]);
 //        System.out.println(ints.length);
 
-        String t = "Abc";
-        int[] tCount = new int[128];
-        for (char c : t.toCharArray()) {
-            tCount[c]++;
+        int[] nums = {1, 2, 4, 5, 6, 7};
+//        int i = removeDuplicates(nums);
+        int i = removeTwo(nums);
+//        System.out.println(i);
+//        System.out.println(Arrays.toString(nums));
+        System.out.println(summaryRanges(nums));
+//        int[] ints = {1, 3, 5, 4, 2};
+//        nextPermutation(ints);
+    }
+
+    static void nextPermutation(int[] nums) {
+        int len = nums.length;
+        // 从后往前找到升序坐标
+        int upIndex = -1;
+        for (int i = len - 2; i >= 0; i--) {
+            if (nums[i] < nums[i + 1]) {
+                upIndex = i;
+                break;
+            }
         }
-        System.out.println(Arrays.toString(tCount));
+        // 不存在即为降序 直接反转整个数组
+        if (upIndex == -1) {
+            revert(nums, 0, len - 1);
+            return;
+        }
+
+        // 从后往前找到比upIndex大的交换位置
+        int j = len - 1;
+        while (nums[j] <= nums[upIndex]) {
+            j--;
+        }
+        swap(nums, upIndex, j);
+        // upIndex后元素反转
+        revert(nums, upIndex + 1, len - 1);
+    }
+
+    private static void swap(int[] nums, int left, int right) {
+        int temp = nums[right];
+        nums[right] = nums[left];
+        nums[left] = temp;
+    }
+
+    private static void revert(int[] nums,int left,int right) {
+        while (left < right) {
+            int temp = nums[right];
+            nums[right] = nums[left];
+            nums[left] = temp;
+            left++;
+            right--;
+        }
+    }
+
+    static List<String> summaryRanges(int[] nums) {
+        List<String> res = new ArrayList<>();
+        // i 初始指向第 1 个区间的起始位置
+        int i = 0;
+        for (int j = 0; j < nums.length; j++) {
+            // j 向后遍历，直到不满足连续递增(即 nums[j] + 1 != nums[j + 1])
+            // 或者 j 达到数组边界，则当前连续递增区间 [i, j] 遍历完毕，将其写入结果列表。
+            if (j + 1 == nums.length || nums[j] + 1 != nums[j + 1]) {
+                // 将当前区间 [i, j] 写入结果列表
+                StringBuilder sb = new StringBuilder();
+                sb.append(nums[i]);
+                if (i != j) {
+                    sb.append("->").append(nums[j]);
+                }
+                res.add(sb.toString());
+                // 将 i 指向更新为 j + 1，作为下一个区间的起始位置
+                i = j + 1;
+            }
+        }
+        return res;
+    }
+
+    private static int removeTwo(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+        int start = 0;
+        for (int num : nums) {
+            if (start < 2 || num > nums[start - 2]) {
+                nums[start++] = num;
+            }
+        }
+        return start;
+    }
+
+    static int removeDuplicates(int[] nums) {
+        if (nums == null || nums.length == 0) return 0;
+        int start = 0;
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[start] != nums[i]) {
+                nums[start + 1] = nums[i];
+                start++;
+            }
+        }
+        return start + 1;
     }
 
     static void quickSort(int[] arr, int left, int right) {
@@ -157,7 +248,7 @@ public class BasicTest {
 
     static void backtrace(String s, int startIndex, Deque<String> path, List<List<String>> res) {
         //如果起始位置大于s的大小，说明找到了一组分割方案
-        if (startIndex >= s.length()) {
+        if (startIndex == s.length()) {
             res.add(new ArrayList<>(path));
             return;
         }
