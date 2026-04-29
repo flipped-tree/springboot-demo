@@ -14,16 +14,8 @@ class SpringbootDemoApplicationTests {
     @Test
     void contextLoads() {
     }
-
-    @Resource
-    StrategyFactory strategyFactory;
     @Resource
     PipelineExecutor pipelineExecutor;
-
-    @Test
-    public void testStrategy() {
-        strategyFactory.getByName("firstStrategy").doSomething();
-    }
 
     @Test
     public void testPipeline() {
