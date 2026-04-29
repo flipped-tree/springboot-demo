@@ -5,15 +5,6 @@ import java.util.*;
 public class BasicTest {
 
     public static void main(String[] args) {
-//        Person p = new Person();
-//        p.setAge("12");
-//        p.setName("Henry");
-//
-//        Person personA = p;
-//
-//        personA.setName("Lily");
-//
-//        System.out.println(p.getName());
 
 //        List<Integer> integers = List.of(1, 2, 3, 4);
 //        List<Long> longs = List.of(1L,2L);
@@ -209,27 +200,6 @@ public class BasicTest {
         list.add(1);
     }
 
-    static class Person {
-        String name;
-        String age;
-
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
-
-        public String getAge() {
-            return age;
-        }
-
-        public void setAge(String age) {
-            this.age = age;
-        }
-    }
-
     public static int sockMerchant(int n, List<Integer> ar) {
         // Write your code here
         if (ar == null || ar.isEmpty()) {
@@ -244,25 +214,6 @@ public class BasicTest {
             pairs += value / 2;
         }
         return pairs;
-    }
-
-    public static void fizzBuzz(int n) {
-        // Write your code here
-        for (int i = 1; i <= n; i++) {
-            if (i % 3 == 0 && i % 5 == 0) {
-                System.out.println("FizzBuzz");
-                continue;
-            }
-            if (i % 3 == 0) {
-                System.out.println("Fizz");
-                continue;
-            }
-            if (i % 5 == 0) {
-                System.out.println("Buzz");
-                continue;
-            }
-            System.out.println(i);
-        }
     }
 
     static List<List<String>> partition(String s) {
